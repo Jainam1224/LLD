@@ -8,7 +8,19 @@ const MemesPage = () => {
 
   useEffect(() => {
     fetchMemes();
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll); // this will be called when component is destroying
   }, []);
+
+  const handleScroll = () => {
+    // scrollY - how much I have scrolled
+    // innerHeight - heigh of the window(visible setion)
+    // document.body.scrollHeight - total height of the web page
+    if (window.scrollY + window.innerHeight >= document.body.scrollHeight) {
+      fetchMemes();
+    }
+  };
 
   const fetchMemes = async () => {
     setShowShimmer(true);
