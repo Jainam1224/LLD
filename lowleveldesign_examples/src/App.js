@@ -6,6 +6,7 @@ import Login from "./components/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { useState } from "react";
 import Accordion from "./components/Accordion/Accordion";
+import Comments from "./components/Comments/Comments";
 
 function App() {
   const [lang, setLang] = useState("en");
@@ -18,6 +19,7 @@ function App() {
           <a href="/about">About </a>
           <a href="/team">Team </a>
           <a href="/accordion">Accordion </a>
+          <a href="/comments">Nested Comments </a>
           <a href="/login">Login </a>
         </nav>
         <select value={lang} onChange={(e) => setLang(e.target.value)}>
@@ -35,6 +37,7 @@ function App() {
           </Route>
           <Route path="/team" element={<Team />} />
           <Route path="/accordion" element={<Accordion />} />
+          <Route path="/comments" element={<Comments />} />
           <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>
