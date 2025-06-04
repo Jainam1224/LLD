@@ -4,8 +4,10 @@ import Body from "./components/Body";
 import Team from "./components/Team";
 import Login from "./components/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
+import { useState } from "react";
 
 function App() {
+  const [lang, setLang] = useState("en");
   return (
     <div>
       <header className="text-2xl font-bold py-5 bg-black text-white text-center flex">
@@ -15,13 +17,18 @@ function App() {
           <a href="/team">Team </a>
           <a href="/login">Login </a>
         </nav>
+        <select value={lang} onChange={(e) => setLang(e.target.value)}>
+          <option value="en">English</option>
+          <option value="hi">Hindi</option>
+          <option value="sp">Spanish</option>
+        </select>
       </header>
 
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Body />} />
           <Route element={<ProtectedRoute />}>
-            <Route path="/about" element={<About />} />
+            <Route path="/about" element={<About lang={lang} />} />
           </Route>
           <Route path="/team" element={<Team />} />
           <Route path="/login" element={<Login />} />
