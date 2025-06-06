@@ -10,6 +10,7 @@ import Comments from "./components/Comments/Comments";
 import ImageSlider from "./components/ImageSlider/ImageSlider";
 import Pagination from "./components/Pagination/Pagination";
 import LiveChat from "./components/live-chat/LiveChat";
+import SearchBar from "./components/SearchBar/SearchBar";
 
 function App() {
   const [lang, setLang] = useState("en");
@@ -26,6 +27,7 @@ function App() {
           <a href="/image-slider">Image Slider </a>
           <a href="/pagination">Pagination </a>
           <a href="/live-chat">Live Chat </a>
+          <a href="/search-bar">Search Bar </a>
           <a href="/login">Login </a>
         </nav>
         <select value={lang} onChange={(e) => setLang(e.target.value)}>
@@ -47,6 +49,7 @@ function App() {
           <Route path="/image-slider" element={<ImageSlider />}></Route>
           <Route path="/pagination" element={<Pagination />}></Route>
           <Route path="/live-chat" element={<LiveChat />}></Route>
+          <Route path="/search-bar" element={<SearchBar />}></Route>
           <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>
